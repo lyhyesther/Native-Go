@@ -1,6 +1,12 @@
 #include <jni.h>
 #include <string>
+#include <android/log.h>
 
+/**
+ * 使用Android NDK 的步骤：
+ * 1、先导入要使用API的头文件
+ * 2、直接使用
+ * */
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_inin_nativego_MainActivity_stringFromJNI(
         JNIEnv *env,
@@ -40,6 +46,8 @@ Java_com_inin_nativego_MainActivity_stringFromJNI(
     //调用静态方法
 //        env->CallStaticObjectMethod()调用返回Object类型的静态方法
 //        env->CallStaticIntMethod()//调用返回Int类型的静态方法
+
+    __android_log_print(ANDROID_LOG_DEBUG, "android_native", "");
     return env->NewStringUTF(achars);
 }
 
